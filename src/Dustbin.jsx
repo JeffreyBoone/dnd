@@ -12,18 +12,19 @@ const style = {
     fontSize: '1rem',
     lineHeight: 'normal',
     float: 'left',
+    // visibility: 'hidden'
 };
 export const Dustbin = () => {
     const [{ canDrop, isOver }, drop] = useDrop({
         accept: ItemTypes.BOX,
-        drop: () => ({ name: 'Dustbin' }),
+        drop: () => ({ name: 'the Dustbin' }),
         collect: (monitor) => ({
             isOver: monitor.isOver(),
             canDrop: monitor.canDrop(),
         }),
     });
     const isActive = canDrop && isOver;
-    let backgroundColor = '#222';
+    let backgroundColor = 'grey';
     if (isActive) {
         backgroundColor = 'darkgreen';
     }
@@ -31,6 +32,6 @@ export const Dustbin = () => {
         backgroundColor = 'darkkhaki';
     }
     return (<div ref={drop} style={{ ...style, backgroundColor }}>
-			{isActive ? 'Release to drop' : 'Drag a box here'}
+			{isActive ? 'Release to drop' : 'Drag an item here'}
 		</div>);
 };
