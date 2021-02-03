@@ -7,20 +7,20 @@ import { useDrag } from 'react-dnd';
 import { ItemTypes } from './ItemTypes';
 
 const style = {
-    border: '1px dashed gray',
-    backgroundColor: 'white',
-    padding: '0.5rem 1rem',
-    marginRight: '1.5rem',
-    marginBottom: '1.5rem',
-    cursor: 'move',
-    float: 'left',
+	border: '1px dashed gray',
+	backgroundColor: 'white',
+	padding: '0.5rem 1rem',
+	marginRight: '1.5rem',
+	marginBottom: '1.5rem',
+	cursor: 'move',
+	float: 'left',
 };
 
 function App() {
 	var namesList = [
-	{ name: "ItemOne" },
-	{ name: "ItemTwo" },
-	{ name: "ItemThree" }
+		{ name: "ItemOne" },
+		{ name: "ItemTwo" },
+		{ name: "ItemThree" }
 	];
 
 	const [list, setList] = React.useState(namesList);
@@ -57,20 +57,16 @@ function App() {
 						<Dustbin />
 					</div>
 					<div style={{ overflow: 'hidden', clear: 'both' }}>
-							{list.map(item => {
-								return (
-									<Box name={item.name} deleter={handleRemove} />
-								);
-							  })}
-							  </div>
+						{list.map(item => {
+							return (
+								<Box name={item.name} deleter={handleRemove} />
+							);
+						})}
+					</div>
 				</div>
 			</DndProvider>
 		</div>
 	)
 }
 
-const rootElement = document.getElementById('root')
-
-
-
-ReactDOM.render(<App />, rootElement)
+ReactDOM.render(<App />, document.getElementById('root'))
